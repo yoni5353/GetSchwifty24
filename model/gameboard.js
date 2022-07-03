@@ -42,6 +42,10 @@ export function verifySolvable(board) {
   return result % 2 == 0;
 }
 
+export function boardIndexToPos(index, boardsize) {
+  return [index % boardsize, Math.floor(index / boardsize)];
+}
+
 function popRandomItem(array) {
   return array.splice(Math.floor(Math.random() * array.length), 1);
 }
