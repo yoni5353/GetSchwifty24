@@ -1,11 +1,15 @@
-export function startGame(view, board) {
-  let gamedisplay = view;
-  let gameboard = board;
+export class SchwiftyController {
+  constructor(view, board) {
+    this.gamedisplay = view;
+    this.gameboard = board;
+  }
 
-  gamedisplay.createBoard(gameboard.board);
+  startGame() {
+    this.gamedisplay.createBoard(this.gameboard.board);
 
-  for (let button of gamedisplay.buttons) {
-    button.addEventListener("click", () => clicked(button.index))
+    for (let button of this.gamedisplay.buttons) {
+      button.addEventListener("click", () => clicked(button.index))
+    }
   }
 }
 
