@@ -5,7 +5,11 @@ export class GameBoard {
 }
 
 function generateBoard(size) {
-  return generateBoardBlindly(size);
+  let newBoard;
+  while (!newBoard || verifySolvable(newBoard)) {
+    newBoard = generateBoardBlindly(size);
+  }
+  return newBoard;
 }
 
 function generateBoardBlindly(size) {
