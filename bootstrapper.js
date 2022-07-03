@@ -4,12 +4,12 @@ import { createBoard } from "./view/gamedisplay.js";
 function main() {
   let gameboard = new Board(3, 3);
   for (let button of createBoard(gameboard.board)) {
-    button.addEventListener("click", () => clicked(button.id))
+    button.addEventListener("click", () => clicked(button.index))
   }
 }
 
-function clicked(buttonId) {
-  console.log(`Button ${buttonId} clicked!`)
+function clicked(buttonIndex) {
+  console.log(`Button ${buttonIndex} clicked!`)
 }
 
 main();
