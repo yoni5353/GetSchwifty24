@@ -1,7 +1,8 @@
-import { hello } from "./model/board.js";
+import { Board } from "./model/board.js";
 
 function main() {
-    console.log(hello())
+    let x = new Board(3, 3)
+    console.log(x.board)
     let field = document.getElementsByClassName("game-field")[0];
 }
 
