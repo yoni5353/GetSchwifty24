@@ -1,4 +1,4 @@
-export class Board {
+export class GameBoard {
   constructor(width, height) {
     this.board = [
       [4, 5, 6],
