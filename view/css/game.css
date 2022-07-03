@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.game-field {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.game-button {
+    min-width: 50px;
+    min-height: 50px;
+}
