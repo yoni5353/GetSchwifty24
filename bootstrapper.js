@@ -1,9 +1,9 @@
 import { Board } from "./model/board.js";
+import { updateBoard } from "./view/gamedisplay.js";
 
 function main() {
-    let x = new Board(3, 3)
-    console.log(x.board)
-    let field = document.getElementsByClassName("game-field")[0];
+    let gameboard = new Board(3, 3);
+    updateBoard(gameboard.board);
 }
 
 main();
