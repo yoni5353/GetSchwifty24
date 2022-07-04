@@ -18,7 +18,7 @@ function bootstrap() {
     logger.log(failedTests.length == 0 ? "All tests passed" : "Failed Tests:", failedTests);
   }
 
-  let controller = new SchwiftyController(new GameDisplay(), new GameBoard(), logger, mode);
+  let controller = new SchwiftyController(new GameDisplay(), new GameBoard(), mode, logger);
   controller.startGame();
 }
 

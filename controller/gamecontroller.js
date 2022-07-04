@@ -1,11 +1,11 @@
 export class SchwiftyController {
-  constructor(view, board, logger, mode) {
+  constructor(view, board, mode, logger) {
     this.gamedisplay = view;
     this.gameboard = board;
-    this.logger = logger;
     this.lastPressed = undefined;
     this.currentGameWon = false;
     this.mode = mode
+    this.logger = logger;
   }
   
   startGame() {
