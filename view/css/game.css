@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.page-wrapper {
+    display: grid;
+    margin: auto;
+    max-width: 80vw;
+    justify-content: center;
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.game-controls-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-button {
+    background-color: burlywood;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.menu-button:active {
+    background-color: chocolate;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.game-field {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: blanchedalmond;
+    padding: .5rem;
+    grid-gap: .5rem;
+}
+
+.game-button {
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.game-button:active {
+    min-width: 100px;
+    min-height: 100px;
+    background-color: goldenrod;
+}
+
+.game-button-selected {
+    min-width: 100px;
+    min-height: 100px;
+    background-color: goldenrod;
+}
+
+.victory-label {
+    font-size: 2.5rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+
+#victory-label {
+    visibility: hidden;
+}
