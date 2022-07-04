@@ -26,6 +26,9 @@ export class SchwiftyController {
     if (this.gameboard.moveCells(this.lastPressed, buttonIndex)) {
       this.gamedisplay.updateBoard(this.gameboard.board);
     }
+    if (this.gameboard.victory) {
+      console.log(`VICTORY!!!`)
+    }
     
     console.log(`Buttons ${this.lastPressed} and ${buttonIndex} clicked!`)
     this.lastPressed = undefined;
