@@ -15,26 +15,22 @@ export class GameDisplay {
     this.#toggleVictoryLabel(false);
     this.#initField(newBoard.length);
     let buttonIndexCounter = 0;
-    newBoard.forEach(row => {
-      row.forEach(cell => {
-        let button = document.createElement("button");
-        button.className = "game-button";
-        setButtonContent(button, cell)
-        button.index = buttonIndexCounter++;
-        button.addEventListener("click", buttonMethodGenerator.next().value);
-        this.fieldElement.appendChild(button);
-        this.buttons.push(button)
-      })
-    });
+    for (let cell of newBoard.flat()) {
+      let button = document.createElement("button");
+      button.className = "game-button";
+      setButtonContent(button, cell)
+      button.index = buttonIndexCounter++;
+      button.addEventListener("click", buttonMethodGenerator.next().value);
+      this.fieldElement.appendChild(button);
+      this.buttons.push(button)
+    }
   }
   
   updateBoard(newBoard) {
     let buttonIndexCounter = 0;
-    newBoard.forEach(row =>{
-      row.forEach(cell => {
-        setButtonContent(this.buttons[buttonIndexCounter++], cell);
-      })
-    })
+    for (let cell of newBoard.flat()) { 
+      setButtonContent(this.buttons[buttonIndexCounter++], cell);
+    }
   }
 
   buttonSelected(buttonIndex) { 
