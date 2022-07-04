@@ -1,12 +1,14 @@
 export class GameDisplay {
   constructor() {
     this.buttons = [];
-    this.field = document.getElementsByClassName("game-field")[0];
+    this.fieldElement = document.getElementsByClassName("game-field")[0];
+    this.boardsizeInput = document.getElementById("boardsize-input");
+    this.startgameButton = document.getElementById("startgame-button");
+    this.victoryLabel = document.getElementById("victory-label");
   }
   
   initStartGameButton(startBoardMethod) {
-    document.getElementById("startgame-button")
-      .addEventListener("click", () => startBoardMethod(document.getElementById("boardsize-input").value));
+    this.startgameButton.addEventListener("click", () => startBoardMethod(this.boardsizeInput.value));
   }
 
   createBoard(newBoard, buttonMethodGenerator) {
@@ -20,7 +22,7 @@ export class GameDisplay {
         setButtonContent(button, cell)
         button.index = buttonIndexCounter++;
         button.addEventListener("click", buttonMethodGenerator.next().value);
-        this.field.appendChild(button);
+        this.fieldElement.appendChild(button);
         this.buttons.push(button)
       })
     });
@@ -53,14 +55,14 @@ export class GameDisplay {
 
   #initField(size) {
     this.buttons = [];
-    while (this.field.hasChildNodes()) {
-      this.field.removeChild(this.field.lastChild);
+    while (this.fieldElement.hasChildNodes()) {
+      this.fieldElement.removeChild(this.fieldElement.lastChild);
     }
-    this.field.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    this.fieldElement.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   }
 
   #toggleVictoryLabel(bool) {
-    document.getElementById("victory-label").style.visibility = bool ? "visible" : "hidden";
+    this.victoryLabel.style.visibility = bool ? "visible" : "hidden";
   }
 }
 
