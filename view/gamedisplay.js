@@ -5,6 +5,7 @@ export class GameDisplay {
   }
   
   createBoard(newBoard, buttonMethodGenerator) {
+    this.#initField(newBoard.length);
     let buttonIndexCounter = 0;
     newBoard.forEach(row => {
       row.forEach(cell => {
@@ -41,6 +42,13 @@ export class GameDisplay {
   }
 
   onVictory() {
+  }
+
+  #initField(size) {
+    while (this.field.hasChildNodes()) {
+      this.field.removeChild(this.field.lastChild);
+    }
+    this.field.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   }
 }
 
