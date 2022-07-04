@@ -1,7 +1,8 @@
 export class SchwiftyController {
-  constructor(view, board) {
+  constructor(view, board, logger) {
     this.gamedisplay = view;
     this.gameboard = board;
+    this.logger = logger;
     this.lastPressed = undefined;
     this.currentGameWon = false;
   }
@@ -23,7 +24,7 @@ export class SchwiftyController {
   }
 
   #clicked(buttonIndex) {
-    console.log(`Button ${buttonIndex} clicked!`)
+    this.logger.log(`Button ${buttonIndex} clicked!`)
     this.#slideModeClick(buttonIndex)
   }
 
@@ -35,7 +36,7 @@ export class SchwiftyController {
     if (this.gameboard.victory && !this.currentGameWon) {
       this.currentGameWon = true;
       this.gamedisplay.declareVictory();
-      console.log(`VICTORY!!!`)
+      this.logger.log(`VICTORY!!!`)
     }
   }
 
@@ -54,10 +55,10 @@ export class SchwiftyController {
 
     if (this.gameboard.victory) {
       this.gamedisplay.declareVictory();
-      console.log(`VICTORY!!!`)
+      this.logger.log(`VICTORY!!!`)
     }
     
-    console.log(`Buttons ${this.lastPressed} and ${buttonIndex} clicked!`)
+    this.logger.log(`Buttons ${this.lastPressed} and ${buttonIndex} clicked!`)
     this.lastPressed = undefined;
   }
 }
