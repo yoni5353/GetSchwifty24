@@ -52,3 +52,13 @@
     min-height: 100px;
     background-color: goldenrod;
 }
+
+.victory-label {
+    font-size: 2.5rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+
+#victory-label {
+    visibility: hidden;
+}
