@@ -11,21 +11,21 @@ export class SchwiftyController {
 
   startBoard(size) {
     this.gameboard.initBoard(size);
-    this.gamedisplay.createBoard(this.gameboard.board, this.gameButtonMethodGenerator(size * size));
+    this.gamedisplay.createBoard(this.gameboard.board, this.#gameButtonMethodGenerator(size * size));
   }
 
-  * gameButtonMethodGenerator(amount) {
+  * #gameButtonMethodGenerator(amount) {
     for (let i = 0; i < amount; i++) {
-      yield () => this.clicked(i);
+      yield () => this.#clicked(i);
     }
   }
 
-  clicked(buttonIndex) {
+  #clicked(buttonIndex) {
     console.log(`Button ${buttonIndex} clicked!`)
-    this.slideModeClick(buttonIndex)
+    this.#slideModeClick(buttonIndex)
   }
 
-  slideModeClick(buttonIndex) {
+  #slideModeClick(buttonIndex) {
     if (this.gameboard.slideCell(buttonIndex)) {
       this.gamedisplay.updateBoard(this.gameboard.board);
     }
@@ -36,7 +36,7 @@ export class SchwiftyController {
     }
   }
 
-  switchModeClick(buttonIndex) {
+  #switchModeClick(buttonIndex) {
     if (this.lastPressed === undefined) {
       this.lastPressed = buttonIndex;
       this.gamedisplay.buttonSelected(buttonIndex);
