@@ -3,6 +3,7 @@ export class SchwiftyController {
     this.gamedisplay = view;
     this.gameboard = board;
     this.lastPressed = undefined;
+    this.currentGameWon = false;
   }
   
   startGame() {
@@ -10,6 +11,7 @@ export class SchwiftyController {
   }
 
   startBoard(size) {
+    this.currentGameWon = false;
     this.gameboard.initBoard(size);
     this.gamedisplay.createBoard(this.gameboard.board, this.#gameButtonMethodGenerator(size * size));
   }
@@ -30,7 +32,8 @@ export class SchwiftyController {
       this.gamedisplay.updateBoard(this.gameboard.board);
     }
 
-    if (this.gameboard.victory) {
+    if (this.gameboard.victory && !this.currentGameWon) {
+      this.currentGameWon = true;
       this.gamedisplay.declareVictory();
       console.log(`VICTORY!!!`)
     }
