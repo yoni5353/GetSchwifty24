@@ -47,6 +47,12 @@
     min-height: 100px;
 }
 
+.game-button:active {
+    min-width: 100px;
+    min-height: 100px;
+    background-color: goldenrod;
+}
+
 .game-button-selected {
     min-width: 100px;
     min-height: 100px;
