@@ -6,7 +6,10 @@ export class SchwiftyController {
   }
   
   startGame() {
-    let size = 3;
+    this.gamedisplay.initStartGameButton((size) => this.startBoard(size));
+  }
+
+  startBoard(size) {
     this.gameboard.initBoard(size);
     this.gamedisplay.createBoard(this.gameboard.board, this.gameButtonMethodGenerator(size * size));
   }

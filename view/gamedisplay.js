@@ -4,6 +4,11 @@ export class GameDisplay {
     this.field = document.getElementsByClassName("game-field")[0];
   }
   
+  initStartGameButton(startBoardMethod) {
+    document.getElementById("startgame-button")
+      .addEventListener("click", () => startBoardMethod(document.getElementById("boardsize-input").value));
+  }
+
   createBoard(newBoard, buttonMethodGenerator) {
     this.#initField(newBoard.length);
     let buttonIndexCounter = 0;
@@ -45,6 +50,7 @@ export class GameDisplay {
   }
 
   #initField(size) {
+    this.buttons = [];
     while (this.field.hasChildNodes()) {
       this.field.removeChild(this.field.lastChild);
     }
