@@ -21,7 +21,6 @@ export class GameDisplay {
   createBoard(newBoard, buttonMethodGenerator) {
     this.#toggleVictoryLabel(false);
     this.#initField(newBoard.length);
-    let buttonIndexCounter = 0;
     for (let cell of newBoard.flat()) {
       let button = document.createElement("button");
       button.className = BUTTON_CLASS;
