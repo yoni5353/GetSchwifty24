@@ -19,7 +19,6 @@ export class GameDisplay {
       let button = document.createElement("button");
       button.className = "game-button";
       setButtonContent(button, cell)
-      button.index = buttonIndexCounter++;
       button.addEventListener("click", buttonMethodGenerator.next().value);
       this.fieldElement.appendChild(button);
       this.buttons.push(button)
