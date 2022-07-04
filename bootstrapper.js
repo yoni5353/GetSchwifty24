@@ -10,7 +10,7 @@ function bootstrap() {
     console.log("All tests passed:", new Tests().runAlltests());
   }
 
-  let controller = new SchwiftyController(new GameDisplay(), new GameBoard(3));
+  let controller = new SchwiftyController(new GameDisplay(), new GameBoard());
   controller.startGame();
 }
 
