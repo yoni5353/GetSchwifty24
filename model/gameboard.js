@@ -82,6 +82,6 @@ export function boardIndexToPos(index, boardsize) {
   return [index % boardsize, Math.floor(index / boardsize)];
 }
 
-function popRandomItem(array) {
+export function popRandomItem(array) {
   return array.splice(Math.floor(Math.random() * array.length), 1)[0];
 }

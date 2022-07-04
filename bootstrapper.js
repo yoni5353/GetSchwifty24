@@ -6,7 +6,7 @@ import { Tests } from "./tests/testmanager.js"
 var runTests = true;
 
 function bootstrap() {
-  if (runTests){
+  if (runTests) {
     console.log("All tests passed:", new Tests().runAlltests());
   }
 
