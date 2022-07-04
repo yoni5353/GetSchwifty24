@@ -10,6 +10,7 @@ export class GameDisplay {
   }
 
   createBoard(newBoard, buttonMethodGenerator) {
+    this.#toggleVictoryLabel(false);
     this.#initField(newBoard.length);
     let buttonIndexCounter = 0;
     newBoard.forEach(row => {
@@ -47,6 +48,7 @@ export class GameDisplay {
   }
 
   onVictory() {
+    this.#toggleVictoryLabel(true);
   }
 
   #initField(size) {
@@ -55,6 +57,10 @@ export class GameDisplay {
       this.field.removeChild(this.field.lastChild);
     }
     this.field.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  }
+
+  #toggleVictoryLabel(bool) {
+    document.getElementById("victory-label").style.visibility = bool ? "visible" : "hidden";
   }
 }
 
