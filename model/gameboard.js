@@ -6,10 +6,10 @@ export class GameBoard {
   }
 
   slideCell(index) {
-    return this.moveCells(index, this.board.flat().findIndex(e => e == 0))
+    return this.switchCells(index, this.board.flat().findIndex(e => e == 0))
   }
 
-  moveCells(firstIndex, secondIndex) {
+  switchCells(firstIndex, secondIndex) {
     let p1 = boardIndexToPos(firstIndex, this.size);
     let p2 = boardIndexToPos(secondIndex, this.size);
     if (this.board[p1[1]][p1[0]] == 0 || this.board[p2[1]][p2[0]] == 0) {
@@ -60,6 +60,7 @@ export function verifySolvable(board) {
       }
     }
   }
+
   let result = greaterThans;
   if (board.length % 2 == 0) {
     result += Math.floor(flatBoard.findIndex(e => e == 0) / board.length) + 1;
