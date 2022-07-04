@@ -1,10 +1,11 @@
 export class SchwiftyController {
-  constructor(view, board, logger) {
+  constructor(view, board, logger, mode) {
     this.gamedisplay = view;
     this.gameboard = board;
     this.logger = logger;
     this.lastPressed = undefined;
     this.currentGameWon = false;
+    this.mode = mode
   }
   
   startGame() {
@@ -25,7 +26,12 @@ export class SchwiftyController {
 
   #clicked(buttonIndex) {
     this.logger.log(`Button[${buttonIndex}] clicked!`)
-    this.#slideModeClick(buttonIndex)
+    
+    if (this.mode == "switch") {
+      this.#switchModeClick(buttonIndex)
+    } else {
+      this.#slideModeClick(buttonIndex)
+    }
 
     if (this.gameboard.victory && !this.currentGameWon) {
       this.currentGameWon = true;
