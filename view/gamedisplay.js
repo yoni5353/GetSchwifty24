@@ -18,17 +18,17 @@ export class GameDisplay {
     for (let cell of newBoard.flat()) {
       let button = document.createElement("button");
       button.className = "game-button";
-      setButtonContent(button, cell)
+      this.#setButtonContent(button, cell);
       button.addEventListener("click", buttonMethodGenerator.next().value);
       this.fieldElement.appendChild(button);
-      this.buttons.push(button)
+      this.buttons.push(button);
     }
   }
   
   updateBoard(newBoard) {
     let buttonIndexCounter = 0;
     for (let cell of newBoard.flat()) { 
-      setButtonContent(this.buttons[buttonIndexCounter++], cell);
+      this.#setButtonContent(this.buttons[buttonIndexCounter++], cell);
     }
   }
 
@@ -56,11 +56,11 @@ export class GameDisplay {
     this.fieldElement.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   }
 
+  #setButtonContent(button, buttonIndex) {
+    button.innerText = buttonIndex != 0 ? buttonIndex : "";
+  }
+
   #toggleVictoryLabel(bool) {
     this.victoryLabel.style.visibility = bool ? "visible" : "hidden";
   }
-}
-
-function setButtonContent(button, buttonIndex) {
-  button.innerText = buttonIndex != 0 ? buttonIndex : "";
 }
