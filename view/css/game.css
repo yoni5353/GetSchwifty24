@@ -5,9 +5,9 @@
 }
 
 .page-wrapper {
+    display: grid;
     margin: auto;
     max-width: 80vw;
-    display: grid;
     justify-content: center;
     text-align: center;
     background-color: whitesmoke;
@@ -36,10 +36,10 @@
 
 .game-field {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: .5rem;
+    grid-template-columns: repeat(3, 1fr);
     background-color: blanchedalmond;
     padding: .5rem;
+    grid-gap: .5rem;
 }
 
 .game-button {
