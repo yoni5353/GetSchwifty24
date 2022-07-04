@@ -1,10 +1,17 @@
+const BUTTON_CLASS = "game-button";
+const SELECTED_BUTTON_CLASS = "game-button-selected";
+const FIELD_CLASS = "game-field";
+const BOARDSIZE_INPUT = "boardsize-input";
+const STARTGAME_BUTTON = "startgame-button";
+const VICTORY_LABEL = "victory-label";
+
 export class GameDisplay {
   constructor() {
     this.buttons = [];
-    this.fieldElement = document.getElementsByClassName("game-field")[0];
-    this.boardsizeInput = document.getElementById("boardsize-input");
-    this.startgameButton = document.getElementById("startgame-button");
-    this.victoryLabel = document.getElementById("victory-label");
+    this.fieldElement = document.getElementsByClassName(FIELD_CLASS)[0];
+    this.boardsizeInput = document.getElementById(BOARDSIZE_INPUT);
+    this.startgameButton = document.getElementById(STARTGAME_BUTTON);
+    this.victoryLabel = document.getElementById(VICTORY_LABEL);
   }
   
   initStartGameButton(startBoardMethod) {
@@ -17,7 +24,7 @@ export class GameDisplay {
     let buttonIndexCounter = 0;
     for (let cell of newBoard.flat()) {
       let button = document.createElement("button");
-      button.className = "game-button";
+      button.className = BUTTON_CLASS;
       this.#setButtonContent(button, cell);
       button.addEventListener("click", buttonMethodGenerator.next().value);
       this.fieldElement.appendChild(button);
@@ -34,13 +41,13 @@ export class GameDisplay {
 
   buttonSelected(buttonIndex) { 
     for (let i = 0; i < this.buttons.length; i ++) {
-      this.buttons[i].className = i == buttonIndex ? "game-button-selected" : "game-button";
+      this.buttons[i].className = i == buttonIndex ? SELECTED_BUTTON_CLASS : BUTTON_CLASS;
     }
   }
 
   unselectButtons() {
     for (let button of this.buttons) {
-      button.className = "game-button";
+      button.className = BUTTON_CLASS;
     }
   }
 
