@@ -6,10 +6,13 @@ export class SchwiftyController {
   }
   
   startGame() {
-    this.gamedisplay.createBoard(this.gameboard.board);
+    let size = 3;
+    this.gamedisplay.createBoard(this.gameboard.board, this.gameButtonMethodGenerator(size * size));
+  }
 
-    for (let button of this.gamedisplay.buttons) {
-      button.addEventListener("click", () => this.clicked(button.index))
+  * gameButtonMethodGenerator(amount) {
+    for (let i = 0; i < amount; i++) {
+      yield () => this.clicked(i);
     }
   }
 
