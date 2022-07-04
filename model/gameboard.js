@@ -16,6 +16,8 @@ export class GameBoard {
         let firstCell = this.board[p1[1]][p1[0]];
         this.board[p1[1]][p1[0]] = this.board[p2[1]][p2[0]];
         this.board[p2[1]][p2[0]] = firstCell;
+        
+        this.victory = checkVictory(this.board);
         return true;
       }
     }
