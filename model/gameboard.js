@@ -5,6 +5,10 @@ export class GameBoard {
     this.victory = false;
   }
 
+  slideCell(index) {
+    this.moveCells(index, this.board.flat().findIndex(e => e == 0))
+  }
+
   moveCells(firstIndex, secondIndex) {
     let p1 = boardIndexToPos(firstIndex, this.size);
     let p2 = boardIndexToPos(secondIndex, this.size);
@@ -58,7 +62,7 @@ export function verifySolvable(board) {
   }
   let result = greaterThans;
   if (board.length % 2 == 0) {
-    result += Math.floor(flatBoard.findIndex((e) => e == 0) / board.length) + 1;
+    result += Math.floor(flatBoard.findIndex(e => e == 0) / board.length) + 1;
   }
   return result % 2 == 0;
 }
