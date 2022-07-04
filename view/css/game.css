@@ -4,19 +4,31 @@
     display: block;
 }
 
+.page-wrapper {
+    margin: auto;
+    max-width: 80vw;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+
 .game-field {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 5px;
+    grid-gap: .5rem;
+    background-color: blanchedalmond;
+    padding: .5rem;
 }
 
 .game-button {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 100px;
+    min-height: 100px;
 }
 
 .game-button-selected {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 100px;
+    min-height: 100px;
     background-color: goldenrod;
 }
