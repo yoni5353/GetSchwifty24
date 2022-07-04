@@ -10,7 +10,7 @@ export class GameBoard {
   }
 
   slideCell(index) {
-    return this.switchCells(index, this.board.flat().findIndex(e => e == 0))
+    return this.switchCells(index, this.board.flat().findIndex(e => e == 0));
   }
 
   switchCells(firstIndex, secondIndex) {

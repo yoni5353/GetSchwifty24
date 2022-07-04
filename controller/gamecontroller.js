@@ -54,6 +54,7 @@ export class SchwiftyController {
     }
     
     this.gamedisplay.unselectButtons(buttonIndex);
+    
     if (this.gameboard.switchCells(this.lastPressed, buttonIndex)) {
       this.gamedisplay.updateBoard(this.gameboard.board);
     }

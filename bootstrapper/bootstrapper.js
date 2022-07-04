@@ -9,7 +9,7 @@ import { ObjectConfigReader } from "../common/configreader.js";
 function bootstrap() {
   let configReader = new ObjectConfigReader(settings);
   let runTests = configReader.get("appSettings", "precedeWithTests");
-  let mode = configReader.get("gameSettings", "mode")
+  let mode = configReader.get("gameSettings", "mode");
 
   let logger = new ConsoleLogger();
 
