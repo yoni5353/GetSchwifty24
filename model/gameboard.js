@@ -2,6 +2,7 @@ export class GameBoard {
   constructor(size) {
     this.size = size;
     this.board = generateBoard(size);
+    this.victory = false;
   }
 
   moveCells(firstIndex, secondIndex) {
@@ -24,7 +25,7 @@ export class GameBoard {
 
 function generateBoard(size) {
   let newBoard;
-  while (!newBoard || verifySolvable(newBoard)) {
+  while (!newBoard || (verifySolvable(newBoard) && !checkVictory(newBoard))) {
     newBoard = generateBoardBlindly(size);
   }
   return newBoard;
