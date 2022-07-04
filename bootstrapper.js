@@ -3,10 +3,13 @@ import { GameDisplay } from "./view/gamedisplay.js";
 import { SchwiftyController } from "./controller/controller.js";
 import { Tests } from "./tests/testmanager.js"
 import { ConsoleLogger } from "./common/consolelogger.js";
-
-var runTests = true;
+import { settings } from "./settings.js";
+import { ObjectConfigReader } from "./common/configreader.js";
 
 function bootstrap() {
+  let configReader = new ObjectConfigReader(settings);
+  let runTests = configReader.get("appSettings", "precedeWithTests");
+
   let logger = new ConsoleLogger();
 
   if (runTests) {
