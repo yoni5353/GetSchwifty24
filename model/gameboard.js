@@ -1,5 +1,9 @@
 export class GameBoard {
   initBoard(size) {
+    if (size < 3) {
+      throw new Error("Board size cannot be less than 3.");
+    }
+
     this.size = size;
     this.board = generateBoard(size);
     this.victory = false;
