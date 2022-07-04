@@ -1,8 +1,8 @@
-import { TestGameBoard } from "./gameboardtests.js";
+import { GameBoardTests } from "./gameboardtests.js";
 
 export class Tests {
   constructor() {
-    this.tests = [new TestGameBoard()];
+    this.tests = [new GameBoardTests()];
   }
   
   runAlltests() {
