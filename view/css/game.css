@@ -12,6 +12,26 @@
     text-align: center;
     background-color: whitesmoke;
     padding: 1rem;
+    gap: 1rem;
+}
+
+.game-controls-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-button {
+    background-color: burlywood;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.menu-button:active {
+    background-color: chocolate;
+    border-radius: 3px;
+    padding: 5px;
 }
 
 .game-field {
