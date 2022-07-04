@@ -29,6 +29,7 @@ export class SchwiftyController {
     if (this.gameboard.slideCell(buttonIndex)) {
       this.gamedisplay.updateBoard(this.gameboard.board);
     }
+
     if (this.gameboard.victory) {
       this.gamedisplay.onVictory();
       console.log(`VICTORY!!!`)
@@ -41,11 +42,13 @@ export class SchwiftyController {
       this.gamedisplay.buttonSelected(buttonIndex);
       return;
     }
+    
     this.gamedisplay.unselectButtons(buttonIndex);
     
     if (this.gameboard.moveCells(this.lastPressed, buttonIndex)) {
       this.gamedisplay.updateBoard(this.gameboard.board);
     }
+    
     if (this.gameboard.victory) {
       this.gamedisplay.onVictory();
       console.log(`VICTORY!!!`)
