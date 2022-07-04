@@ -45,7 +45,7 @@ export class GameDisplay {
     }
   }
 
-  onVictory() {
+  declareVictory() {
     this.#toggleVictoryLabel(true);
   }
 

@@ -31,7 +31,7 @@ export class SchwiftyController {
     }
 
     if (this.gameboard.victory) {
-      this.gamedisplay.onVictory();
+      this.gamedisplay.declareVictory();
       console.log(`VICTORY!!!`)
     }
   }
@@ -50,7 +50,7 @@ export class SchwiftyController {
     }
 
     if (this.gameboard.victory) {
-      this.gamedisplay.onVictory();
+      this.gamedisplay.declareVictory();
       console.log(`VICTORY!!!`)
     }
     
