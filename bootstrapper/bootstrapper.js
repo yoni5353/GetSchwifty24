@@ -1,6 +1,6 @@
 import { GameBoard } from "../model/gameboard.js";
 import { GameDisplay } from "../view/gamedisplay.js";
-import { SchwiftyController } from "../controller/controller.js";
+import { SchwiftyController } from "../controller/gamecontroller.js";
 import { Tests } from "../tests/testmanager.js"
 import { ConsoleLogger } from "../common/consolelogger.js";
 import { settings } from "./settings.js";
