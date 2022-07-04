@@ -21,8 +21,22 @@ export class SchwiftyController {
   }
 
   clicked(buttonIndex) {
+    console.log(`Button ${buttonIndex} clicked!`)
+    this.slideModeClick(buttonIndex)
+  }
+
+  slideModeClick(buttonIndex) {
+    if (this.gameboard.slideCell(buttonIndex)) {
+      this.gamedisplay.updateBoard(this.gameboard.board);
+    }
+    if (this.gameboard.victory) {
+      this.gamedisplay.onVictory();
+      console.log(`VICTORY!!!`)
+    }
+  }
+
+  switchModeClick(buttonIndex) {
     if (this.lastPressed === undefined) {
-      console.log(`Button ${buttonIndex} clicked!`)
       this.lastPressed = buttonIndex;
       this.gamedisplay.buttonSelected(buttonIndex);
       return;
