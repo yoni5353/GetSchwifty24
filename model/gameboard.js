@@ -27,7 +27,7 @@ export class GameBoard {
 
 function generateBoard(size) {
   let newBoard;
-  while (!newBoard || (verifySolvable(newBoard) && !checkVictory(newBoard))) {
+  while (!newBoard || !verifySolvable(newBoard) || checkVictory(newBoard)) {
     newBoard = generateBoardBlindly(size);
   }
   return newBoard;
