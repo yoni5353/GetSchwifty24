@@ -14,3 +14,9 @@
     min-width: 50px;
     min-height: 50px;
 }
+
+.game-button-selected {
+    min-width: 50px;
+    min-height: 50px;
+    background-color: goldenrod;
+}

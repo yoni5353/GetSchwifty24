@@ -12,7 +12,7 @@ export class GameDisplay {
         button.className = "game-button";
         button.innerText = cell;
         button.index = buttonIndexCounter++;
-        button.addEventListener("click", buttonMethodGenerator.next().value)
+        button.addEventListener("click", buttonMethodGenerator.next().value);
         this.field.appendChild(button);
         this.buttons.push(button)
       })
@@ -28,7 +28,18 @@ export class GameDisplay {
     })
   }
 
+  buttonSelected(buttonIndex) { 
+    for (let i = 0; i < this.buttons.length; i ++) {
+      this.buttons[i].className = i == buttonIndex ? "game-button-selected" : "game-button";
+    }
+  }
+
+  unselectButtons() {
+    for (let button of this.buttons) {
+      button.className = "game-button";
+    }
+  }
+
   onVictory() {
-    
   }
 }
