@@ -27,6 +27,7 @@ export class SchwiftyController {
       this.gamedisplay.updateBoard(this.gameboard.board);
     }
     if (this.gameboard.victory) {
+      this.gamedisplay.onVictory();
       console.log(`VICTORY!!!`)
     }
     
