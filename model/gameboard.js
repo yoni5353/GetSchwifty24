@@ -1,6 +1,24 @@
 export class GameBoard {
   constructor(size) {
+    this.size = size;
     this.board = generateBoard(size);
+  }
+
+  moveCells(firstIndex, secondIndex) {
+    let p1 = boardIndexToPos(firstIndex, this.size);
+    let p2 = boardIndexToPos(secondIndex, this.size);
+    if (this.board[p1[1]][p1[0]] == 0 || this.board[p2[1]][p2[0]] == 0) {
+      if (
+        Math.abs(p1[0] - p2[0]) == 1 && p1[1] == p2[1] ||
+        Math.abs(p1[1] - p2[1]) == 1 && p1[0] == p2[0]
+      ) {
+        let firstCell = this.board[p1[1]][p1[0]];
+        this.board[p1[1]][p1[0]] = this.board[p2[1]][p2[0]];
+        this.board[p2[1]][p2[0]] = firstCell;
+        return true;
+      }
+    }
+    return false;
   }
 }
 
