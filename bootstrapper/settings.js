@@ -3,5 +3,6 @@ export var settings = {
 		precedeWithTests: true,
 	},
 	gameSettings: {
+		mode: "slide"
 	}
 }

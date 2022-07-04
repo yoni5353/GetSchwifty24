@@ -9,6 +9,7 @@ import { ObjectConfigReader } from "../common/configreader.js";
 function bootstrap() {
   let configReader = new ObjectConfigReader(settings);
   let runTests = configReader.get("appSettings", "precedeWithTests");
+  let mode = configReader.get("gameSettings", "mode")
 
   let logger = new ConsoleLogger();
 
@@ -17,7 +18,7 @@ function bootstrap() {
     logger.log(failedTests.length == 0 ? "All tests passed" : "Failed Tests:", failedTests);
   }
 
-  let controller = new SchwiftyController(new GameDisplay(), new GameBoard(), logger);
+  let controller = new SchwiftyController(new GameDisplay(), new GameBoard(), logger, mode);
   controller.startGame();
 }
 
