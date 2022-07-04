@@ -6,7 +6,7 @@ export class GameBoard {
   }
 
   slideCell(index) {
-    this.moveCells(index, this.board.flat().findIndex(e => e == 0))
+    return this.moveCells(index, this.board.flat().findIndex(e => e == 0))
   }
 
   moveCells(firstIndex, secondIndex) {
