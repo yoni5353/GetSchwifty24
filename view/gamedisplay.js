@@ -10,7 +10,7 @@ export class GameDisplay {
       row.forEach(cell => {
         let button = document.createElement("button");
         button.className = "game-button";
-        button.innerText = cell;
+        setButtonContent(button, cell)
         button.index = buttonIndexCounter++;
         button.addEventListener("click", buttonMethodGenerator.next().value);
         this.field.appendChild(button);
@@ -23,7 +23,7 @@ export class GameDisplay {
     let buttonIndexCounter = 0;
     newBoard.forEach(row =>{
       row.forEach(cell => {
-        this.buttons[buttonIndexCounter++].innerText = cell;
+        setButtonContent(this.buttons[buttonIndexCounter++], cell);
       })
     })
   }
@@ -42,4 +42,8 @@ export class GameDisplay {
 
   onVictory() {
   }
+}
+
+function setButtonContent(button, buttonIndex) {
+  button.innerText = buttonIndex != 0 ? buttonIndex : "";
 }
