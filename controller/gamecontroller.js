@@ -26,17 +26,17 @@ export class SchwiftyController {
   #clicked(buttonIndex) {
     this.logger.log(`Button[${buttonIndex}] clicked!`)
     this.#slideModeClick(buttonIndex)
-  }
-
-  #slideModeClick(buttonIndex) {
-    if (this.gameboard.slideCell(buttonIndex)) {
-      this.gamedisplay.updateBoard(this.gameboard.board);
-    }
 
     if (this.gameboard.victory && !this.currentGameWon) {
       this.currentGameWon = true;
       this.gamedisplay.declareVictory();
       this.logger.log(`VICTORY!`)
+    }
+  }
+
+  #slideModeClick(buttonIndex) {
+    if (this.gameboard.slideCell(buttonIndex)) {
+      this.gamedisplay.updateBoard(this.gameboard.board);
     }
   }
 
@@ -48,14 +48,8 @@ export class SchwiftyController {
     }
     
     this.gamedisplay.unselectButtons(buttonIndex);
-    
     if (this.gameboard.switchCells(this.lastPressed, buttonIndex)) {
       this.gamedisplay.updateBoard(this.gameboard.board);
-    }
-
-    if (this.gameboard.victory) {
-      this.gamedisplay.declareVictory();
-      this.logger.log(`VICTORY!`)
     }
     
     this.logger.log(`Buttons ${this.lastPressed} and ${buttonIndex} clicked!`)
