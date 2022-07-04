@@ -7,7 +7,8 @@ var runTests = true;
 
 function bootstrap() {
   if (runTests) {
-    console.log("All tests passed:", new Tests().runAlltests());
+    let failedTests = new Tests().runAlltests();
+    console.log(failedTests.length == 0 ? "All tests passed" : "Failed Tests:", failedTests);
   }
 
   let controller = new SchwiftyController(new GameDisplay(), new GameBoard());
