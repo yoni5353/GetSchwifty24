@@ -1,5 +1,5 @@
 export class GameBoard {
-  constructor(size) {
+  initBoard(size) {
     this.size = size;
     this.board = generateBoard(size);
     this.victory = false;
